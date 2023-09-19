@@ -21,18 +21,16 @@ using NZWalk.API.Mappings;
         private readonly AppDbContext _context;
         private readonly IRegionRepository _regionRepository;
         private readonly IMapper mapper;
-    private readonly ILogger logger;
 
-    public RegionController(IRegionRepository regionRepository, IMapper _mapper, ILogger logger)
+    public RegionController(IRegionRepository regionRepository, IMapper _mapper)
         {
             
             _regionRepository = regionRepository;
                mapper = _mapper;
-        this.logger = logger;
     }
 
         [HttpGet]
-        [Authorize(Roles ="Reader")]
+        //[Authorize(Roles ="Reader")]
     public async Task<IActionResult> GetAll(string? filter, string? filterOn)
         {
             var regions = await _regionRepository.GetAllAsync();

@@ -23,6 +23,7 @@ namespace NZWalk.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
+
             var difficultyList = await _difficultyRepository.GetAllAsync();
             return Ok(mapper.Map<List<DifficultyDTO>>(difficultyList));
         
